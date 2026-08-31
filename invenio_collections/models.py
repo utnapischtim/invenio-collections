@@ -1,5 +1,5 @@
 # SPDX-FileCopyrightText: 2024 CERN.
-# SPDX-FileCopyrightText: 2025 Graz University of Technology.
+# SPDX-FileCopyrightText: 2025-2026 Graz University of Technology.
 # SPDX-FileCopyrightText: 2026 KTH Royal Institute of Technology.
 # SPDX-License-Identifier: MIT
 """Collections models."""
@@ -190,7 +190,7 @@ class Collection(db.Model, db.Timestamp):
     @classmethod
     def get(cls, id_):
         """Get a collection by ID."""
-        return cls.query.get(id_)
+        return db.session.get(cls, id_)
 
     @classmethod
     def get_by_slug(cls, slug, tree_id):
